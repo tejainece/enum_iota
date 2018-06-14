@@ -4,9 +4,9 @@ import 'package:enum_iota/enum_iota.dart';
   #male,
   #female,
 ])
-abstract class _Gender implements EnumClass {}
+abstract class _Gender implements Enum {}
 
-class Gender implements EnumClass {
+class Gender implements Enum {
   final int index;
 
   final String name;
@@ -18,12 +18,24 @@ class Gender implements EnumClass {
 }
 
 @GenEnum(const [
-  const EnumVal('a', '1 << iota'),  // => 1
-  #b,                               // => 2
-  ResetIota(5),
-  #c,                               // => 0
+  ConstEval(#a, '1 << iota'), // => 1
+  #b, // => 2
+  5,
+  #c, // => 0
 ])
-abstract class _Day implements EnumClass {}
+abstract class _Day implements Enum {}
 
-main() {
-}
+@GenEnum(const [
+  null, // Don't capture
+  ConstEval(#kb, '1 << (10 * iota)'),
+  #mb,
+  #gb,
+  #tb,
+  #pb,
+  #eb,
+  #zb,
+  #yb
+])
+abstract class _Size implements Enum {}
+
+main() {}

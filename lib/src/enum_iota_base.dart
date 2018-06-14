@@ -1,13 +1,13 @@
-class ResetIota {
-  final int val;
-  const ResetIota(this.val);
+class Reset {
+  final int value;
+  const Reset([this.value]);
 }
 
-class EnumVal {
-  final String name;
+class ConstEval {
+  final Symbol name;
   final dynamic value;
-  const EnumVal(this.name, [this.value]);
-  const EnumVal.int(this.name, int value) : value = value;
+  const ConstEval(this.name, [this.value]);
+  const ConstEval.int(this.name, int value) : value = value;
 }
 
 class GenEnum {
@@ -16,6 +16,6 @@ class GenEnum {
   const GenEnum(this.values);
 }
 
-abstract class EnumClass {
+abstract class Enum {
   int get index;
 }
